@@ -26,11 +26,12 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
+        // uses in memory sqlite database -- in small apps, it is okay
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-package-example_table.php.stub';
+
+        $migration = include __DIR__.'/../database/migrations/create_my_models_table.php.stub';
         $migration->up();
-        */
+
     }
 }
