@@ -5,6 +5,7 @@ namespace Spatie\Example\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Example\ExampleServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class TestCase extends Orchestra
 {
@@ -26,9 +27,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
-        // uses in memory sqlite database -- in small apps, it is okay
-        config()->set('database.default', 'testing');
-
+        Schema::dropAllTables();
 
         $migration = include __DIR__.'/../database/migrations/create_my_models_table.php.stub';
         $migration->up();
