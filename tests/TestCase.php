@@ -3,6 +3,7 @@
 namespace Spatie\Example\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Example\ExampleServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +17,7 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Spatie\\Example\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+/*       Route::example();*/ // if we use PHPUnit, we use this way
     }
 
     protected function getPackageProviders($app)
